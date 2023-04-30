@@ -7,16 +7,12 @@ import time
 
 from demo_opts import get_device
 from stats_text import display_stats
-from stats_histogram import (
-    init_histogram,
-    display_histogram,
-    histogramData,
-    histogramTime,
-)
+from stats_histogram import init_histogram, display_histogram
 
 
 def main():
-    wait_time = 15
+    wait_time = 30
+    histogramData, histogramTime = init_histogram()
     while True:
         for _ in range(wait_time):
             display_stats(device)
@@ -29,7 +25,6 @@ def main():
 if __name__ == "__main__":
     try:
         device = get_device()
-        histogramData, histogramTime = init_histogram()
         main()
     except KeyboardInterrupt:
         pass
